@@ -1,0 +1,103 @@
+.header{
+    position: fixed;
+    top: 7rem;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    z-index: 100;
+}
+.header-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 20rem;
+    padding: 0.5rem .5rem 0.5rem 0;
+}
+
+.header-title-container{
+    width: 100%;
+    border-radius: 0 70px 10px 0;
+    background: #c1a8f7;
+    box-shadow:  8px 8px 44px #8d7bb4,
+                 -8px -8px 44px #f5d5ff;
+}
+.header-title{
+    color: black;
+    font-family: "oswald", sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(45deg,rgb(81, 123, 202) 10%,rgb(203, 88, 151) 40%,rgb(141, 81, 202) 60%,rgb(141, 81, 202) 70%,rgb(229, 116, 178) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+.header-more{
+    padding: .5rem;
+    border-radius: 5px;
+    background: #ac8ae8;
+    clip-path: polygon(50% 0, 0% 100%, 100% 100%);
+    animation: MoreBtn 1s ease-in-out infinite ;
+}
+
+@keyframes MoreBtn {
+    0%,100%{background: #ac8ae8;}
+    50%{background: #8a90e8;}
+}
+
+.header-more-container{
+    display: flex;
+    align-items: center;
+    height: 25px;
+    width: 25px;
+    margin:  0 2rem;
+    padding: .25rem;
+    border-radius: 50%;
+    transform: rotate(360deg);
+    background: linear-gradient(145deg, #cfb4ff, #ae97de);
+    box-shadow:  5px 5px 10px #8574aa,
+             -5px -5px 10px #fddcff;
+    transition:all .7s ease-out ;
+}
+.header-more-container:active{
+    background: #c1a8f7;
+    box-shadow: inset 5px 5px 10px #8574aa,
+            inset -5px -5px 10px #fddcff;
+}
+.header-more-container.header-show{
+    transform: rotate(-180deg);
+    transition:all .7s ease-out ;
+}
+.header-content{
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-style: italic;
+    padding: .5rem;
+    width: 80%;
+    color: transparent;
+    max-height: .7rem;
+    padding: .2rem  .5rem .7rem .7rem;
+    overflow: hidden;
+    border-radius: 0 0 50px 15px;
+    background: linear-gradient(145deg, #cfb4ff, #ae97de);
+    box-shadow:  22px 22px 44px #8d7bb4;
+    transition: all .5s ease-in-out;
+}
+.header-content .header-content-fix{
+    filter: blur(12px);
+    transition: all .3s ease-out;
+    transition-delay: .1s;
+}
+.header-content.header-show{
+    color: #000;
+    max-height: 15rem;
+    transition: all .5s ease-in-out;
+}
+.header-content.header-show .header-content-fix{
+    filter: none;
+    transition: all .3s ease-out;
+
+}
