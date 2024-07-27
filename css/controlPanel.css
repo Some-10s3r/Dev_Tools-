@@ -3,40 +3,58 @@
    top: 11rem;
    padding: 2rem 1rem;
    right: 0;
-   height: max-content;
-   height: 30rem;
-   background: red; 
    border-radius:  25px 0 0 25px;
-   background: #c1a8f7;
-   box-shadow: inset 5px 5px 10px #a08bcd,
-               inset -5px -5px 10px #e2c5ff;
-   border: 2px solid #c1a8f7;
+   background: var(--main-bg);
+   box-shadow: inset 5px 5px 10px var(--shadows),
+               inset -5px -5px 10px var(--highlights);
+   border: 2px solid var(--sec-bg);
+   width: max-content;
+}
+@media screen and (max-width:768px) {
+   .control-panel{
+      bottom: 0;
+      top: auto;
+      left: 30%;
+      border-radius: 25px 25px 0 0 ;
+   }
 }
 .control-container{
    display: flex;
    align-items: center;
-   justify-content: space-between;
+   justify-content: space-evenly;
    gap: 4rem;
    width: fit-content;
+}
+input[type="color"]{
+   border: 1px solid var(--text-color);
+   border-radius: 10px 0;
+}
+.last-control{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 3rem;
+   margin-top: 20px;
 }
 .controls{
    display: flex;
    align-items: center;
    justify-content: center;
    flex-direction: column;
+   margin-top: 10px;
 }
+.control-container label,.controls label{color: var(--text-color);}
 .knob{
    position: relative;
-   margin: 11%;
-   background: rgb(35, 40, 35);
-   background: radial-gradient(rgb(83, 82, 82),rgb(35, 40, 35));
-   width: 100px;
-   height: 100px;
+   margin-top: 8%;
+   background: radial-gradient(var(--main-bg),var(--sec-bg));
+   aspect-ratio: 1/1;
+   height: 10vh;
    border-radius: 50%;
-   box-shadow: 0px -10px 10px #757575,
-               0px 10px 23px #111,
-               inset 0px 5px 6px #979797,
-               inset 0px -5px 6px #242424;
+   box-shadow:  3px 3px 6px var(--shadows),
+             -3px -3px 6px var(--highlights);
+   transition: 0;
+   touch-action: none;
 }
 .knob::before,.knob::after{
    content: "";
@@ -49,8 +67,8 @@
    transform: translate(-50%);
    height: 10px;
    width: 10px;
-   background: #fff;
-   box-shadow: 0px 0px 10px pink;
+   background: var(--text-color);
+   box-shadow: 1px 1px 3px var(--text-color);
 }
 .knob::before{
    top: 50%;
@@ -58,7 +76,22 @@
    transform: translate(-50%,-50%);
    width: 110%;
    height: 110%;
-   border: 2px solid rgb(35, 40, 35);
-   box-shadow: 0px 0px 10px rgb(35, 40, 35),
-               inset 0px 0px 10px rgb(35, 40, 35);
+   border: 3px solid var(--main-bg);
+   box-shadow:  6px 6px 12px var(--shadows),
+             -6px -6px 12px var(--highlights);
+}
+
+.control-buttons{
+   padding: 5px;
+   margin: 2px;
+   border-radius: 10px;
+   background: var(--main-bg);
+   border: 2px solid var(--sec-bg);
+   box-shadow:  6px 6px 12px var(--shadows),
+             -6px -6px 12px var(--highlights);
+}
+
+.control-buttons:active{
+   box-shadow: inset 6px 6px 12px var(--shadows),
+                inset -6px -6px 12px var(--highlights);
 }

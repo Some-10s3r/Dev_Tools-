@@ -3,12 +3,19 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root{
+    --main-bg: #7d188f;
+    --shadows: rgb(98,19,114);
+    --highlights: rgb(183,36,215);
+    --sec-bg: rgb(153,30,179);
+    --dark-sec-bg: rgb(137, 25, 160);
+}
 body{
     height: 100vh;
     font-size: 23px;
     font-weight: 400;
     font-family: "Oswald", sans-serif;
-    background: #c1a8f7;
+    background: var(--main-bg);
     /* background: linear-gradient(45deg,rgb(81, 123, 202) 10%,rgb(203, 88, 151) 40%,rgb(141, 81, 202) 60%,rgb(141, 81, 202) 70%,rgb(229, 116, 178) 100%); */
 }
 a{

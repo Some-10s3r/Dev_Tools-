@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/controlPanel.css">
+    <link rel="stylesheet" href="/css/screen.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Playwrite+CU:wght@100..400&display=swap" rel="stylesheet">
@@ -58,20 +59,43 @@
 
     <!-- control panel section -->
     <section class="control-panel">
-        <label for="color">Pick a color</label>
-        <input type="color" name="color" id="color">
         <div class="control-container">
-            <div class="controls Control-size">
-                <label for="size">Size:</label>
+            <label for="color">Pick a color :</label>
+            <input type="color" name="color" id="color">
+        </div>
+        <div class="control-container">
+            <div class="controls Control-Size">
+                <label for="Size">Size :</label>
                 <div class="knob"></div>
             </div>
-            <div class="controls Control-radius">
-                <label for="Radius">Radius:</label>
+            <div class="controls Control-Radius">
+                <label for="Radius">Radius :</label>
                 <div class="knob"></div>
             </div>
         </div>
+        <div class="control-container">
+            <div class="controls Control-Distance">
+                <label for="Distance">Distance :</label>
+                <div class="knob"></div>
+            </div>
+            <div class="controls Control-Blur">
+                <label for="Blur">Blur :</label>
+                <div class="knob"></div>
+            </div>
+        </div>
+        <div class="last-control">
+            <button class="control-buttons" name="down"><svg xmlns="http://www.w3.org/2000/svg" width="65" height="30" viewBox="0 0 145 24" fill="none" stroke="white"><path d="M0 2H22V21C22 21.5523 22.4477 22 23 22H121C121.552 22 122 21.5523 122 21V2H145" stroke="inherit" stroke-width="6"></path></svg></button>
+            <button class="control-buttons" name="up"><svg xmlns="http://www.w3.org/2000/svg" width="65" height="30" viewBox="0 0 145 33" fill="none" stroke="white"><path d="M0 31H7C15.2843 31 22 24.2843 22 16V11.7329C22 11.2966 22.2898 10.9083 22.7061 10.7779C60.0722 -0.924818 84.913 -0.925978 121.302 10.7745C121.714 10.9071 122 11.2935 122 11.727V16C122 24.2843 128.716 31 137 31H145" stroke="inherit" stroke-width="6"></path></svg></button>
+        </div>
     </section>
 
-    <script src="script.js"></script>
+
+    <section class="screen">
+
+    </section>
+
+    <script src="/js/hamb.js"></script>
+    <script src="/js/knob.js"></script>
+    <script src="/js/control.js"></script>
 </body>
 </html>
