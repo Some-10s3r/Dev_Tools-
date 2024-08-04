@@ -16,10 +16,12 @@
     justify-content: center;
 }
 .final-element{
-    height: 50px;
+    height: 150px;
     aspect-ratio: 1/1;
     position: absolute;
     background: var(--main-bg);
+    box-shadow: 4px 4px 4px #191a1a,
+                -4px -4px 4px #222324;
     transition: box-shadow .3s ease;
 }
 .sides-container{
