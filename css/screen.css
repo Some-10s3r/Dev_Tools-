@@ -1,5 +1,71 @@
 .screen{
-    width: 10rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--main-bg);
+    box-shadow: inset 8px 8px 22px var(--shadows),
+                inset -8px -8px 22px var(--highlights);
+}
+.element-borders{
+    border: 3px solid rebeccapurple;
+    height: 350px;width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.final-element{
+    height: 50px;
     aspect-ratio: 1/1;
-    background: red;
+    position: absolute;
+    background: var(--main-bg);
+    transition: box-shadow .3s ease;
+}
+.sides-container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.sides-container .side{
+    position: absolute;
+    width: 6%;
+    aspect-ratio: 1/1;
+    border:1px solid var(--text-color);
+    transition: all .5s;
+}
+.sides-container .side:hover{
+    padding: 1.2rem;
+    transition: all .3s;
+}
+.sides-container .side,.sides-container .side:hover{
+    transition-timing-function: cubic-bezier(.87,-1.38,.03,1.54);
+}
+.sides-container .side:nth-child(1){
+    top: 0;
+    left: 0;
+    border-radius: 0 0 50% 0;
+}
+.sides-container .side:nth-child(2){
+    top: 0;
+    right: 0;
+    border-radius: 0 0 0 50% ;
+}
+.sides-container .side:nth-child(3){
+    bottom: 0;
+    right: 0;
+    border-radius: 50% 0 0 0;
+}
+.sides-container .side:nth-child(4){
+    bottom: 0;
+    left: 0;
+    border-radius: 0 50% 0 0;
+}
+
+.sides-container .side.side-clicked{
+    background: var(--sec-bg);
+    padding: 1rem;
+}
+.sides-container .side.side-clicked:hover{
+    padding: 1.3rem;
 }

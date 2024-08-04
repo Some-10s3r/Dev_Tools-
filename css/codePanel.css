@@ -1,0 +1,54 @@
+.code-panel{
+    grid-area: code;
+}
+.code-container {
+    position: relative;
+    padding: 0 ;
+    background: rgb(29, 31, 33);
+    border-top: 1px solid #9e2af628;
+    border-left: 1px solid #9e2af677;
+    border-bottom: 2px solid #9e2ae7;
+    border-radius: 5px 0 0 25px;
+}
+.copyBtn{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.copyBtn2{display: none;z-index: 10;}
+.copyBtn,.copyBtn2{
+    background: var(--main-bg);
+    box-shadow: 2px 2px 3px var(--shadows),
+                 -2px -2px 3px var(--highlights);
+    border-radius: 10px;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: .5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .3s ease-in;
+}
+.copyBtn:hover,.copyBtn2:hover {
+    padding: 0.5rem 1.1rem;
+    transition: .3s ease-in;
+}
+.copyBtn:active,.copyBtn2:active{
+    box-shadow: inset 5px 5px 10px var(--shadows),
+              inset -5px -5px 10px var(--highlights);
+}
+.code {
+    padding: .5rem .2rem;
+    font-size: 1rem;
+    font-family: monospace;
+    white-space: nowrap;
+}
+.code span{margin: .5rem 0;color: rgb(155, 155, 155);}
+.code p{
+    color: #9e2ae7;
+    font-weight: bold;
+    margin: .5rem;
+}
+.code p:last-child{
+    margin-left: 7rem;
+}
