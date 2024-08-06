@@ -4,7 +4,7 @@ const insetBtns = document.querySelectorAll('.control-buttons');
 const res = document.querySelector('.final-element');
 let copyText = document.querySelector('.code').textContent;
 //color control:
-const color = document.querySelector('#color')
+const color = document.querySelector('.Neu-panel #NeuColor')
 color.addEventListener('input',e=>{
     const mainCol = e.target.value;
     const mainColor = getComputedStyle(document.documentElement).getPropertyValue('--main-bg');

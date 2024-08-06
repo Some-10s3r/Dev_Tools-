@@ -1,0 +1,10 @@
+body.GradTool .code-container,body.GradTool .final-element,body.GradTool .sides-container{
+    display: none;
+}
+
+body.GradTool .screen{
+    background: linear-gradient(90deg ,red ,blue);
+}
+
+body.GradTool .Neu-panel{display: none;}
+body.GradTool .Grad-panel{display: block;}

@@ -22,16 +22,21 @@
     box-shadow:  8px 8px 22px var(--shadows),
                  -8px -8px 22px var(--highlights);
     border-bottom: 2px solid var(--sec-bg);
+
 }
 .header-title{
-    color: black;
+    color: var(--text-color);
     font-family: "oswald", sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
+    background: none;
     background: linear-gradient(45deg,rgb(81, 123, 202) 10%,rgb(203, 88, 151) 40%,rgb(141, 81, 202) 60%,rgb(141, 81, 202) 70%,rgb(229, 116, 178) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .header-more{
     padding: .5rem;

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/controlPanel.css">
     <link rel="stylesheet" href="css/codePanel.css">
     <link rel="stylesheet" href="css/screen.css">
+    <link rel="stylesheet" href="css/gradient.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Playwrite+CU:wght@100..400&display=swap" rel="stylesheet">
@@ -16,7 +17,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Dev_Tool's</title>
 </head>
-<body class="BlobTool GradTool">
+<body class="NeuTool">
     <!-- nav bar section -->
     <nav class="navbar">
         <div class="nav-container">
@@ -24,7 +25,7 @@
             <ul class="nav-links">
                 <li style="--i:0;"><a href="#">Neumorph'</a></li>
                 <li style="--i:1;"><a href="#">Blob'Maker</a></li>
-                <li style="--i:2;"><a href="#">gradients'</a></li>
+                <li style="--i:2;"><a href="#">Gradients'</a></li>
                 <li style="--i:3;"><a href="#">About</a></li>
             </ul>
             <div class="nav-about"><a href="#">About</a></div>
@@ -40,7 +41,7 @@
     <header class="header">
         <div class="header-container">
             <div class="header-title-container">
-                <div class="header-title">Neumorphism  
+                <div class="header-title"><p>Neumorphism</p> 
                     <div class="header-content-fix" style="display: inline-block;">
                         <div class="header-more-container" id="header-more-button">
                             <span class="material-symbols-outlined header-more"></span>
@@ -49,10 +50,8 @@
                 </div>
             </div>
             <div class="header-content" id="header-more-content">
-                <div class="header-content-fix">
-                    Create stylish UI elements effortlessly with our Neumorphism Generator.
-                 Customize shadows and highlights for a modern look and generate CSS instantly.
-                </div>
+                Create stylish UI elements effortlessly with our Neumorphism Generator.
+                Customize shadows and highlights for a modern look and generate CSS instantly.
             </div>
         </div>
     </header>
@@ -71,33 +70,41 @@
             </div>               
         </section>
         <section class="control-panel">
-            <div class="control-container">
-                <label for="color">Color :</label>
-                <input type="color" name="color" id="color">
+            <div class="Neu-panel">
+                <div class="control-container">
+                    <label for="NeuColor">Color :</label>
+                    <input type="color" name="NeuColor" id="NeuColor">
+                </div>
+                <div class="control-container">
+                    <div class="controls Control-Size">
+                        <label for="Size">Size :</label>
+                        <div class="knob" id="Size"></div>
+                    </div>
+                    <div class="controls Control-Radius">
+                        <label for="Radius">Radius :</label>
+                        <div class="knob" id="Radius"></div>
+                    </div>
+                </div>
+                <div class="control-container">
+                    <div class="controls Control-Distance">
+                        <label for="Distance">Distance :</label>
+                        <div class="knob" id="Distance"></div>
+                    </div>
+                    <div class="controls Control-Blur">
+                        <label for="Blur">Blur :</label>
+                        <div class="knob" id="Blur"></div>
+                    </div>
+                </div>
+                <div class="last-control">
+                    <button class="control-buttons" name="down"><svg xmlns="http://www.w3.org/2000/svg" width="65" height="30" viewBox="0 0 145 24" fill="none" stroke="white"><path d="M0 2H22V21C22 21.5523 22.4477 22 23 22H121C121.552 22 122 21.5523 122 21V2H145" stroke="inherit" stroke-width="6"></path></svg></button>
+                    <button class="control-buttons" name="up"><svg xmlns="http://www.w3.org/2000/svg" width="65" height="30" viewBox="0 0 145 33" fill="none" stroke="white"><path d="M0 31H7C15.2843 31 22 24.2843 22 16V11.7329C22 11.2966 22.2898 10.9083 22.7061 10.7779C60.0722 -0.924818 84.913 -0.925978 121.302 10.7745C121.714 10.9071 122 11.2935 122 11.727V16C122 24.2843 128.716 31 137 31H145" stroke="inherit" stroke-width="6"></path></svg></button>
+                </div>
             </div>
-            <div class="control-container">
-                <div class="controls Control-Size">
-                    <label for="Size">Size :</label>
-                    <div class="knob" id="Size"></div>
+            <div class="Grad-panel">
+                <div class="control-container">
+                    <label for="GradColor">color:</label>
+                    <input type="color" id="GradColor">
                 </div>
-                <div class="controls Control-Radius">
-                    <label for="Radius">Radius :</label>
-                    <div class="knob" id="Radius"></div>
-                </div>
-            </div>
-            <div class="control-container">
-                <div class="controls Control-Distance">
-                    <label for="Distance">Distance :</label>
-                    <div class="knob" id="Distance"></div>
-                </div>
-                <div class="controls Control-Blur">
-                    <label for="Blur">Blur :</label>
-                    <div class="knob" id="Blur"></div>
-                </div>
-            </div>
-            <div class="last-control">
-                <button class="control-buttons" name="down"><svg xmlns="http://www.w3.org/2000/svg" width="65" height="30" viewBox="0 0 145 24" fill="none" stroke="white"><path d="M0 2H22V21C22 21.5523 22.4477 22 23 22H121C121.552 22 122 21.5523 122 21V2H145" stroke="inherit" stroke-width="6"></path></svg></button>
-                <button class="control-buttons" name="up"><svg xmlns="http://www.w3.org/2000/svg" width="65" height="30" viewBox="0 0 145 33" fill="none" stroke="white"><path d="M0 31H7C15.2843 31 22 24.2843 22 16V11.7329C22 11.2966 22.2898 10.9083 22.7061 10.7779C60.0722 -0.924818 84.913 -0.925978 121.302 10.7745C121.714 10.9071 122 11.2935 122 11.727V16C122 24.2843 128.716 31 137 31H145" stroke="inherit" stroke-width="6"></path></svg></button>
             </div>
         </section>
     </div>
