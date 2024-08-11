@@ -36,21 +36,21 @@ body{
     "   .           panel           panel           panel       panel       panel  "
     ;
 }
-body .Grad-panel{display: none;}
+body .Grad-panel{display: none  ;}
 body.GradTool{
     grid-template-areas: 
     "   nav         nav             nav           nav           nav         nav    "
     "   .           .               .               .           .           header "
-    "   .           screen          screen          .           .           .      "
-    "   .           screen          screen          .           .           .      "
-    "   panel       panel           panel           panel       panel       .      "
+    "   .           .          screen          screen           .           .      "
+    "   .           .          screen          screen           .           .      "
+    "   .       .           .           .       .       .      "
     "   panel       panel           panel           panel       panel       .      "
     "   panel       panel           panel           panel       panel       .      "
     "   panel       panel           panel           panel       panel       .      "
     "   panel       panel           panel           panel       panel       .      "
     ;
 }
-body.GradTool .screen{grid-area: 3/2/8/6;}
+body.GradTool .screen{grid-area: 3/3/8/6;}
 body.GradTool .header-container{
     padding: .5rem 0 .5rem .5rem;
 }

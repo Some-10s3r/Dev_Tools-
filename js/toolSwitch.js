@@ -1,12 +1,13 @@
 let toolsLinks = document.querySelectorAll('.nav-links li');
-console.log(toolsLinks);
 let headerTitle = document.querySelector('.header-title p');
 let headerContent = document.querySelector('.header-content');
+let SetScreen = document.querySelector('.screen');
 toolsLinks.forEach(toolLink=>{
     toolLink.addEventListener('click',()=>{
         document.body.classList.remove('NeuTool');
         document.body.classList.remove('BlobTool');
         document.body.classList.remove('GradTool');
+        SetScreen.style.backgroundImage = 'none';
         toolsLinks.forEach(e=>{e.style.scale = 1;e.style.textShadow='none'})
     })
 });
@@ -31,4 +32,5 @@ toolsLinks[2].addEventListener('click',()=>{
     document.body.classList.add('GradTool');
     headerTitle.textContent = "Gradients'";
     headerContent.textContent = "Craft stunning, multi-color gradients with our Gradient Tool. Choose from a library of pre-made gradients or create your own. Adjust opacity, angle, and spread for the perfect blend. Get instant CSS code.";
+    SetScreen.style.backgroundImage = 'linear-gradient(90deg, rgb(186, 37, 250) 14%, rgb(247, 202, 49))';
 });

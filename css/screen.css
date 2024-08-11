@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     background: var(--main-bg);
+    background-image: none;
     box-shadow: inset 8px 8px 22px var(--shadows),
                 inset -8px -8px 22px var(--highlights);
 }

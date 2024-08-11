@@ -100,7 +100,7 @@
 }
 .header-content.header-show{
     color: var(--text-color);
-    max-height: 15rem;
+    max-height: 20rem;
     transition: all .5s ease-in-out;
 }
 .header-content.header-show .header-content-fix{

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/navbar.css">   
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/controlPanel.css">
     <link rel="stylesheet" href="css/codePanel.css">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Dev_Tool's</title>
 </head>
-<body class="NeuTool">
+<body class="GradTool">
     <!-- nav bar section -->
     <nav class="navbar">
         <div class="nav-container">
@@ -96,14 +96,29 @@
                     </div>
                 </div>
                 <div class="last-control">
-                    <button class="control-buttons" name="down"><svg xmlns="http://www.w3.org/2000/svg" width="65" height="30" viewBox="0 0 145 24" fill="none" stroke="white"><path d="M0 2H22V21C22 21.5523 22.4477 22 23 22H121C121.552 22 122 21.5523 122 21V2H145" stroke="inherit" stroke-width="6"></path></svg></button>
-                    <button class="control-buttons" name="up"><svg xmlns="http://www.w3.org/2000/svg" width="65" height="30" viewBox="0 0 145 33" fill="none" stroke="white"><path d="M0 31H7C15.2843 31 22 24.2843 22 16V11.7329C22 11.2966 22.2898 10.9083 22.7061 10.7779C60.0722 -0.924818 84.913 -0.925978 121.302 10.7745C121.714 10.9071 122 11.2935 122 11.727V16C122 24.2843 128.716 31 137 31H145" stroke="inherit" stroke-width="6"></path></svg></button>
+                    <button class="control-buttons inset-buttons" name="down"><svg xmlns="http://www.w3.org/2000/svg" width="65" height="30" viewBox="0 0 145 24" fill="none" stroke="white"><path d="M0 2H22V21C22 21.5523 22.4477 22 23 22H121C121.552 22 122 21.5523 122 21V2H145" stroke="inherit" stroke-width="6"></path></svg></button>
+                    <button class="control-buttons inset-buttons" name="up"><svg xmlns="http://www.w3.org/2000/svg" width="65" height="30" viewBox="0 0 145 33" fill="none" stroke="white"><path d="M0 31H7C15.2843 31 22 24.2843 22 16V11.7329C22 11.2966 22.2898 10.9083 22.7061 10.7779C60.0722 -0.924818 84.913 -0.925978 121.302 10.7745C121.714 10.9071 122 11.2935 122 11.727V16C122 24.2843 128.716 31 137 31H145" stroke="inherit" stroke-width="6"></path></svg></button>
                 </div>
             </div>
             <div class="Grad-panel">
                 <div class="control-container">
-                    <label for="GradColor">color:</label>
-                    <input type="color" id="GradColor">
+                    <label for="GradColors">colors:</label>
+                    <input type="color" id="GradColor1">
+                    <input type="color" id="GradColor2">
+                </div>
+                <div class="control-container">
+                    <div class="controls control-Position">
+                        <label for="Position">Position :</label>
+                        <div class="knob" id="Position"></div>
+                    </div>
+                    <div class="controls control-Rotation">
+                        <label for="Rotation">Rotation :</label>
+                        <div class="knob" id="Rotation"></div>
+                    </div>
+                </div>
+                <div class="last-control">
+                    <button class="control-buttons Rotary-controls" id="linear"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M680-280q-72 0-127-45.5T484-440H272q-12 27-37 43.5T180-380q-42 0-71-29t-29-71q0-42 29-71t71-29q30 0 55 16.5t37 43.5h212q14-69 69-114.5T680-680q83 0 141.5 58.5T880-480q0 83-58.5 141.5T680-280Zm0-80q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Z"/></svg></button>
+                    <button class="control-buttons Rotary-controls" id="radial"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-280q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg></button>
                 </div>
             </div>
         </section>

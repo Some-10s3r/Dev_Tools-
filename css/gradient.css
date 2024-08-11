@@ -3,8 +3,20 @@ body.GradTool .code-container,body.GradTool .final-element,body.GradTool .sides-
 }
 
 body.GradTool .screen{
-    background: linear-gradient(90deg ,red ,blue);
+    background: linear-gradient(90deg ,rgb(186, 37, 250) ,rgb(247, 202, 49));
 }
 
 body.GradTool .Neu-panel{display: none;}
-body.GradTool .Grad-panel{display: block;}
+body.GradTool .Grad-panel{
+    display: flex;
+    align-items: center;
+    justify-content: space-aroud;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+
+.Rotary-controls{padding: 10px 15px;}
+body.GradTool input[type='color']{
+    width: 40px;
+}
