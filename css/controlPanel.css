@@ -1,3 +1,4 @@
+body.NeuTool .Grad-panel,body.NeuTool .Blob-panel,body.NeuTool .Blob-element{display: none;}
 .panel_container{
    grid-area: panel;
 }

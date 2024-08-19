@@ -1,0 +1,31 @@
+body.BlobTool .Neu-panel,body.BlobTool .Grad-panel{display: none;}
+body.BlobTool .screen *{display: none;}
+body.BlobTool .code{display: none;}
+body.BlobTool .code-container{border: none;}
+body.BlobTool input[type='color']{
+    width: 40px;
+    border-color: var(--sec-bg);
+}
+body.BlobTool .Blob-panel{
+    display: flex;
+    align-items: center;
+    justify-content: space-aroud;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+body.BlobTool .copyBtn{
+    bottom: 0;
+    right: 0;
+    top: auto;
+    width: fit-content;
+}
+body.BlobTool .Blob-element{
+  display: block;
+  background: red;
+  height: 80%;
+  aspect-ratio: 1/1;
+  border-radius: 67% 33% 47% 53% / 45% 49% 51% 55% ;
+  background: #FF0099;
+  background-image: linear-gradient(45deg,#3023AE,#FF0099);
+}

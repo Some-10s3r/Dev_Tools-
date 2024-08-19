@@ -9,6 +9,7 @@
                  -35px -35px 70px var(--highlights);
     border-bottom: 2px solid var(--sec-bg);
     border-radius: 20px 0 0 20px;
+    height: max-content;
 }
 .logo-title{
     color: black;

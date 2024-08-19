@@ -1,12 +1,21 @@
-body.GradTool .code-container,body.GradTool .final-element,body.GradTool .sides-container{
+body.GradTool .screen *{
     display: none;
+}
+body.GradTool .code-panel{
+    grid-area: code;
 }
 
 body.GradTool .screen{
-    background: linear-gradient(90deg ,rgb(186, 37, 250) ,rgb(247, 202, 49));
+    background: linear-gradient(0deg ,rgb(186, 37, 250) ,rgb(247, 202, 49));
 }
-
-body.GradTool .Neu-panel{display: none;}
+body.GradTool .code{display: none;}
+body.GradTool .copyBtn{
+    bottom: 0;
+    left: 0;
+    top: auto;
+    width: fit-content;
+}
+body.GradTool .Neu-panel,body.GradTool .Blob-panel{display: none;}
 body.GradTool .Grad-panel{
     display: flex;
     align-items: center;
@@ -15,8 +24,8 @@ body.GradTool .Grad-panel{
     gap: 2rem;
     width: 100%;
 }
-
 .Rotary-controls{padding: 10px 15px;}
 body.GradTool input[type='color']{
     width: 40px;
+    border-color: var(--sec-bg);
 }

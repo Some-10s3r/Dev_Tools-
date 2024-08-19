@@ -36,7 +36,7 @@ body{
     "   .           panel           panel           panel       panel       panel  "
     ;
 }
-body .Grad-panel{display: none  ;}
+body.NeuTool .Grad-panel{display: none;}
 body.GradTool{
     grid-template-areas: 
     "   nav         nav             nav           nav           nav         nav    "
@@ -76,13 +76,17 @@ body.GradTool .header-title{flex-direction: row-reverse;}
 }
 
 body.GradTool .panel_container{
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns:  auto auto 1fr;
     grid-template-areas:
     "  control   .     .  "
     "  control   .     .  "
-    "  control   .     .  "
+    "  control   code  .  "
     ;
 }
 body.GradTool .panel_container .control-panel{border-radius: 0 20px 0 0;}
+.body.GradTool .code{display: none;}
 .screen{
     grid-area: 3/2/8/4;
     margin-left: 5rem;

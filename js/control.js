@@ -1,17 +1,37 @@
+//!NeuTool Variables:
+let NeuCopyText = document.querySelector('.code').textContent;
 const spans = document.querySelectorAll('.code p span');
 const knobs = document.querySelectorAll('.knob');
 const insetBtns = document.querySelectorAll('.inset-buttons');
-const res = document.querySelector('.final-element');
-let copyText = document.querySelector('.code').textContent;
-//!GradTool Variables
+const NeuEl = document.querySelector('.final-element');
+
+//!GradTool Variables:
+let GradCopyText = 'background-image: linear-gradient(0deg ,rgb(186, 37, 250) ,rgb(247, 202, 49));';
+const GradEl = document.querySelector('.screen');
+const GradColor1 = document.getElementById('GradColor1');
+const GradColor2 = document.getElementById('GradColor2');
+const rotaryBtns = document.querySelectorAll('.Rotary-controls');
 let radialProp = 'linear';
-let Rotation = '45deg,';
+let Rotation = '0deg,';
 let RadialFunc = 'linear-gradient( ';
-let Color1Val = 'Red';
-let Color2Val = 'blue';
+let GradColor1Val = 'rgb(186, 37, 250)';
+let GradColor2Val = 'rgb(247, 202, 49)';
 let spread = '0';
+
+//!BlobTool Variables:
+let BlobCopyText;
+const BlobEL = document.querySelector('.Blob-element');
+const BlobColor1 = document.getElementById('BlobColor1');
+const BlobColor2 = document.getElementById('BlobColor2');
+let contTop = "67";
+let contRight = "45";
+let contBottom = "33";
+let contLeft = "50";
+let BlobColor1Val = '#FF0099';
+let BlobColor2Val = '#3023AE';
+
 //*color control:
-const color = document.querySelector('.Neu-panel #NeuColor')
+const color = document.querySelector('.Neu-panel #NeuColor');
 color.addEventListener('input',e=>{
     const mainCol = e.target.value;
     const mainColor = getComputedStyle(document.documentElement).getPropertyValue('--main-bg');
@@ -20,7 +40,7 @@ color.addEventListener('input',e=>{
     spans[0].innerHTML = getComputedStyle(document.documentElement).getPropertyValue('--main-bg');
     spans[8].innerHTML = toHex(getComputedStyle(document.documentElement).getPropertyValue('--shadows'));
     spans[15].innerHTML = toHex(getComputedStyle(document.documentElement).getPropertyValue('--highlights'));
-    res.style.boxShadow = `${spans[2].innerHTML}${spans[3].innerHTML}${spans[4].innerHTML}${spans[5].innerHTML}${spans[6].innerHTML}${spans[7].innerHTML}${spans[8].innerHTML},${spans[9].innerHTML}${spans[10].innerHTML}${spans[11].innerHTML}${spans[12].innerHTML}${spans[13].innerHTML}${spans[14].innerHTML}${spans[15].innerHTML}`;
+    NeuEl.style.boxShadow = `${spans[2].innerHTML}${spans[3].innerHTML}${spans[4].innerHTML}${spans[5].innerHTML}${spans[6].innerHTML}${spans[7].innerHTML}${spans[8].innerHTML},${spans[9].innerHTML}${spans[10].innerHTML}${spans[11].innerHTML}${spans[12].innerHTML}${spans[13].innerHTML}${spans[14].innerHTML}${spans[15].innerHTML}`;
 })
 //*darken and lighten functions:
 const darken= (r,g,b)=>{
@@ -60,11 +80,11 @@ const updateSpans = (text) => {
 };
 insetBtns[0].addEventListener('click', () => {
     updateSpans('inset ');
-    res.style.boxShadow = `${spans[2].innerHTML}${spans[3].innerHTML}${spans[4].innerHTML}${spans[5].innerHTML}${spans[6].innerHTML}${spans[7].innerHTML}${spans[8].innerHTML},${spans[9].innerHTML}${spans[10].innerHTML}${spans[11].innerHTML}${spans[12].innerHTML}${spans[13].innerHTML}${spans[14].innerHTML}${spans[15].innerHTML}`;
+    NeuEl.style.boxShadow = `${spans[2].innerHTML}${spans[3].innerHTML}${spans[4].innerHTML}${spans[5].innerHTML}${spans[6].innerHTML}${spans[7].innerHTML}${spans[8].innerHTML},${spans[9].innerHTML}${spans[10].innerHTML}${spans[11].innerHTML}${spans[12].innerHTML}${spans[13].innerHTML}${spans[14].innerHTML}${spans[15].innerHTML}`;
 });
 insetBtns[1].addEventListener('click', () =>{
     updateSpans('');
-    res.style.boxShadow = `${spans[2].innerHTML}${spans[3].innerHTML}${spans[4].innerHTML}${spans[5].innerHTML}${spans[6].innerHTML}${spans[7].innerHTML}${spans[8].innerHTML},${spans[9].innerHTML}${spans[10].innerHTML}${spans[11].innerHTML}${spans[12].innerHTML}${spans[13].innerHTML}${spans[14].innerHTML}${spans[15].innerHTML}`;
+    NeuEl.style.boxShadow = `${spans[2].innerHTML}${spans[3].innerHTML}${spans[4].innerHTML}${spans[5].innerHTML}${spans[6].innerHTML}${spans[7].innerHTML}${spans[8].innerHTML},${spans[9].innerHTML}${spans[10].innerHTML}${spans[11].innerHTML}${spans[12].innerHTML}${spans[13].innerHTML}${spans[14].innerHTML}${spans[15].innerHTML}`;
 });
 
 //*rgb to Hex 
@@ -102,11 +122,11 @@ const knobControl = (knob) => (e) =>{
     let contDeg =Math.max(Math.min(deg, 360), 0) > 320 ? 360: Math.max(Math.min(deg, 360), 0);
     const prop = knob.id;
     if(prop == "Size"){
-        res.style.height = `${Math.floor(contDeg/360*80)<=40?'40':Math.floor(contDeg/360*80)*screenHeight/100}px`
+        NeuEl.style.height = `${Math.floor(contDeg/360*80)<=40?'40':Math.floor(contDeg/360*80)*screenHeight/100}px`
     }else if(prop == "Radius"){
         let Radius = `${Math.floor(contDeg/360*100)==100?'50%':Math.floor(contDeg/360*100)+'px'}`;
         spans[1].innerHTML = Radius;
-        res.style.borderRadius = Radius;
+        NeuEl.style.borderRadius = Radius;
     }else if(prop == "Distance") {
         let Distance = `${Math.floor(contDeg/360*20)}px `
         spans[4].innerHTML= Distance;
@@ -120,18 +140,38 @@ const knobControl = (knob) => (e) =>{
     //*this is the GradTool knob controls(position and rotation)
     }else if(prop == "Rotation"){
         if(radialProp == 'linear'){
-            Rotation = `${contDeg}deg,`;
+            Rotation = `${deg}deg,`;
         }else{ 
             Rotation = '';
         };
-        screen.style.backgroundImage = `${RadialFunc}${Rotation} ${Color1Val} ${spread}%, ${Color2Val})`;
+        GradEl.style.backgroundImage = `${RadialFunc}${Rotation} ${GradColor1Val} ${spread}%, ${GradColor2Val})`;
     }else if(prop == "Position"){
-        spread = `${Math.floor(contDeg/360*100)}`;
-        screen.style.backgroundImage = `${RadialFunc}${Rotation} ${Color1Val} ${spread}%, ${Color2Val})`;
+        spread = `${Math.floor(deg/360*100)}`;
+        GradEl.style.backgroundImage = `${RadialFunc}${Rotation} ${GradColor1Val} ${spread}%, ${GradColor2Val})`;
+    //*this is the BlobTool knob controls(T,L,B,R)
+    }else if(prop == "Top"){
+        contTop = `${Math.floor(deg/360*100)}`;
+        console.log(prop);
+    }else if(prop == "Bottom"){
+        contBottom = `${Math.floor(deg/360*100)}`;
+        console.log(prop);
+    }else if(prop == "Right"){
+        contRight = `${Math.floor(deg/360*100)}`;
+        console.log(prop);
+    }else if(prop == "Left"){
+        contLeft = `${Math.floor(deg/360*100)}`;
+        console.log(prop);
     }
-    copyText = document.querySelector('.code').textContent;
-    res.style.boxShadow = `${spans[2].innerHTML}${spans[3].innerHTML}${spans[4].innerHTML}${spans[5].innerHTML}${spans[6].innerHTML}${spans[7].innerHTML}${spans[8].innerHTML},${spans[9].innerHTML}${spans[10].innerHTML}${spans[11].innerHTML}${spans[12].innerHTML}${spans[13].innerHTML}${spans[14].innerHTML}${spans[15].innerHTML}`;
-    screen.style.backgroundImage = `${RadialFunc}${Rotation} ${Color1Val} ${spread}%, ${Color2Val})`;
+    BlobCopyText = `border-radius: ${contTop}% ${100-contTop}% ${contBottom}% ${100-contBottom}% / ${contLeft}% ${contRight}% ${100-contRight}% ${100-contLeft}%;`;
+    GradCopyText = `background-image: ${RadialFunc}${Rotation} ${GradColor1Val} ${spread}%, ${GradColor2Val});`;
+    NeuCopyText = document.querySelector('.code').textContent;
+    if(document.body.classList[0] == "NeuTool"){
+        NeuEl.style.boxShadow = `${spans[2].innerHTML}${spans[3].innerHTML}${spans[4].innerHTML}${spans[5].innerHTML}${spans[6].innerHTML}${spans[7].innerHTML}${spans[8].innerHTML},${spans[9].innerHTML}${spans[10].innerHTML}${spans[11].innerHTML}${spans[12].innerHTML}${spans[13].innerHTML}${spans[14].innerHTML}${spans[15].innerHTML}`;
+    }else if(document.body.classList[0] == "GradTool"){
+        GradEl.style.backgroundImage = `${RadialFunc}${Rotation} ${GradColor1Val} ${spread}%, ${GradColor2Val})`
+    }else{
+        BlobEL.style.borderRadius = `${contTop}% ${100-contTop}% ${contBottom}% ${100-contBottom}% / ${contRight}% ${contLeft}% ${100-contLeft}% ${100-contRight}%`;
+    };
 };
 
 knobs.forEach((knob,index)=>{
@@ -142,23 +182,28 @@ knobs.forEach((knob,index)=>{
         knob.addEventListener('pointermove', knobMouvement);
     });
     knob.addEventListener('pointerup',()=>{
-        knob.removeEventListener('pointermove',knobMouvement)
+        knob.removeEventListener('pointermove',knobMouvement);
     });
     knob.addEventListener('pointerleave',()=>{
-        knob.removeEventListener('pointermove',knobMouvement)
+        knob.removeEventListener('pointermove',knobMouvement);
     });
 })
 
 
 //*the copy btns logic:
-let btns = [document.querySelector('.copyBtn'),document.querySelector('.copyBtn2')]
+let copyBtn = document.querySelector('.copyBtn');
+let clipBoardText;
+copyBtn.addEventListener('click',()=>{
+    if(document.body.classList[0] == "BlobTool"){
+        clipBoardText = BlobCopyText;
+    }else if (document.body.classList[0] == "GradTool"){
+        clipBoardText = GradCopyText;
+    }else{
+        clipBoardText = NeuCopyText;
+    };
+    navigator.clipboard.writeText(clipBoardText);
+});
 
-
-btns.forEach(btn =>{
-    btn.addEventListener('click',()=>{
-        navigator.clipboard.writeText(copyText)      
-    })
-})
 
 //*side-buttons logic:
 let sideBtns = document.querySelectorAll('.side');
@@ -175,39 +220,36 @@ sideBtns.forEach(sideBtn=>{
 sideBtns[0].addEventListener('click',()=>{
     sideSpans[2].innerHTML='-';
     sideSpans[3].innerHTML='-';
-    res.style.boxShadow = `${spans[2].innerHTML}${spans[3].innerHTML}${spans[4].innerHTML}${spans[5].innerHTML}${spans[6].innerHTML}${spans[7].innerHTML}${spans[8].innerHTML},${spans[9].innerHTML}${spans[10].innerHTML}${spans[11].innerHTML}${spans[12].innerHTML}${spans[13].innerHTML}${spans[14].innerHTML}${spans[15].innerHTML}`;    
+    NeuEl.style.boxShadow = `${spans[2].innerHTML}${spans[3].innerHTML}${spans[4].innerHTML}${spans[5].innerHTML}${spans[6].innerHTML}${spans[7].innerHTML}${spans[8].innerHTML},${spans[9].innerHTML}${spans[10].innerHTML}${spans[11].innerHTML}${spans[12].innerHTML}${spans[13].innerHTML}${spans[14].innerHTML}${spans[15].innerHTML}`;    
 });
 sideBtns[1].addEventListener('click',()=>{
     sideSpans[0].innerHTML='-';
     sideSpans[3].innerHTML='-';
-    res.style.boxShadow = `${spans[2].innerHTML}${spans[3].innerHTML}${spans[4].innerHTML}${spans[5].innerHTML}${spans[6].innerHTML}${spans[7].innerHTML}${spans[8].innerHTML},${spans[9].innerHTML}${spans[10].innerHTML}${spans[11].innerHTML}${spans[12].innerHTML}${spans[13].innerHTML}${spans[14].innerHTML}${spans[15].innerHTML}`;    
+    NeuEl.style.boxShadow = `${spans[2].innerHTML}${spans[3].innerHTML}${spans[4].innerHTML}${spans[5].innerHTML}${spans[6].innerHTML}${spans[7].innerHTML}${spans[8].innerHTML},${spans[9].innerHTML}${spans[10].innerHTML}${spans[11].innerHTML}${spans[12].innerHTML}${spans[13].innerHTML}${spans[14].innerHTML}${spans[15].innerHTML}`;    
 });
 sideBtns[2].addEventListener('click',()=>{
     sideSpans[0].innerHTML='-';
     sideSpans[1].innerHTML='-';
-    res.style.boxShadow = `${spans[2].innerHTML}${spans[3].innerHTML}${spans[4].innerHTML}${spans[5].innerHTML}${spans[6].innerHTML}${spans[7].innerHTML}${spans[8].innerHTML},${spans[9].innerHTML}${spans[10].innerHTML}${spans[11].innerHTML}${spans[12].innerHTML}${spans[13].innerHTML}${spans[14].innerHTML}${spans[15].innerHTML}`;    
+    NeuEl.style.boxShadow = `${spans[2].innerHTML}${spans[3].innerHTML}${spans[4].innerHTML}${spans[5].innerHTML}${spans[6].innerHTML}${spans[7].innerHTML}${spans[8].innerHTML},${spans[9].innerHTML}${spans[10].innerHTML}${spans[11].innerHTML}${spans[12].innerHTML}${spans[13].innerHTML}${spans[14].innerHTML}${spans[15].innerHTML}`;    
 });
 sideBtns[3].addEventListener('click',()=>{
     sideSpans[1].innerHTML='-';
     sideSpans[2].innerHTML='-';
-    res.style.boxShadow = `${spans[2].innerHTML}${spans[3].innerHTML}${spans[4].innerHTML}${spans[5].innerHTML}${spans[6].innerHTML}${spans[7].innerHTML}${spans[8].innerHTML},${spans[9].innerHTML}${spans[10].innerHTML}${spans[11].innerHTML}${spans[12].innerHTML}${spans[13].innerHTML}${spans[14].innerHTML}${spans[15].innerHTML}`;    
+    NeuEl.style.boxShadow = `${spans[2].innerHTML}${spans[3].innerHTML}${spans[4].innerHTML}${spans[5].innerHTML}${spans[6].innerHTML}${spans[7].innerHTML}${spans[8].innerHTML},${spans[9].innerHTML}${spans[10].innerHTML}${spans[11].innerHTML}${spans[12].innerHTML}${spans[13].innerHTML}${spans[14].innerHTML}${spans[15].innerHTML}`;    
 });
 
 
 //!GradTool Controls
 //!(the knobs control are inside the knobControl function)
-const screen = document.querySelector('.screen');
-const Color1 = document.getElementById('GradColor1');
-const Color2 = document.getElementById('GradColor2');
-const rotaryBtns = document.querySelectorAll('.Rotary-controls');
 
-Color1.addEventListener('input',e=>{
-    Color1Val = e.target.value;
-    screen.style.backgroundImage = `${RadialFunc}${Rotation} ${Color1Val} ${spread}%, ${Color2Val})`;
+
+GradColor1.addEventListener('input',e=>{
+    GradColor1Val = e.target.value;
+    GradEl.style.backgroundImage = `${RadialFunc}${Rotation} ${GradColor1Val} ${spread}%, ${GradColor2Val})`;
 });
-Color2.addEventListener('input',e=>{
-    Color2Val = e.target.value;
-    screen.style.backgroundImage = `${RadialFunc}${Rotation} ${Color1Val} ${spread}%, ${Color2Val})`;
+GradColor2.addEventListener('input',e=>{
+    GradColor2Val = e.target.value;
+    GradEl.style.backgroundImage = `${RadialFunc}${Rotation} ${GradColor1Val} ${spread}%, ${GradColor2Val})`;
 });
 
 //*the GradTool Radial btns:
@@ -215,14 +257,24 @@ rotaryBtns.forEach(rotaryBtn =>{
     rotaryBtn.addEventListener('click',e=>{
         radialProp = rotaryBtn.id;
         if(radialProp == 'linear'){
-            RadialFunc = `${radialProp}-gradient( `
-            screen.style.backgroundImage = `${RadialFunc}${Rotation} ${Color1Val} ${spread}%, ${Color2Val})`;
-            console.log(`${RadialFunc}${Rotation} ${Color1Val} ${spread}%, ${Color2Val})`);
+            RadialFunc = `${radialProp}-gradient(`
+            GradEl.style.backgroundImage = `${RadialFunc}${Rotation} ${GradColor1Val} ${spread}%, ${GradColor2Val})`;
         }else{
-            RadialFunc = `${radialProp}-gradient(circle, `
+            RadialFunc = `${radialProp}-gradient(circle, `;
             Rotation = '';
-            screen.style.backgroundImage = `${RadialFunc}${Rotation} ${Color1Val} ${spread}%, ${Color2Val})`;
-            console.log(`${RadialFunc}${Rotation} ${Color1Val} ${spread}%, ${Color2Val})`);
+            GradEl.style.backgroundImage = `${RadialFunc}${Rotation} ${GradColor1Val} ${spread}%, ${GradColor2Val})`;
         }
+        GradCopyText = `background-image: ${RadialFunc}${Rotation} ${GradColor1Val} ${spread}%, ${GradColor2Val})`;
     })
-})
+});
+
+//!BLobTool Controls:
+//!(the knobs control are inside the knobControl function)
+BlobColor1.addEventListener('input',e=>{
+    BlobColor1Val = e.target.value;
+    BlobEL.style.backgroundImage = `linear-gradient(45deg,${BlobColor1Val},${BlobColor2Val})`;
+});
+BlobColor2.addEventListener('input',e=>{
+    BlobColor2Val = e.target.value;
+    BlobEL.style.backgroundImage = `linear-gradient(45deg,${BlobColor1Val},${BlobColor2Val})`;
+});
